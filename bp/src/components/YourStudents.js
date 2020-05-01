@@ -3,7 +3,8 @@ import {axiosWithAuth} from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
 import { StudentListDiv, StudentListItem, SmallBlueButton, BigBlueButton1 } from './styles';
 
-const YourStudents = () => {
+
+const YourStudents = (props) => {
 
     const [students, setStudents] = useState([]);
 
@@ -17,9 +18,14 @@ const YourStudents = () => {
             .catch(err => console.log(err))
     },[])
 
-    const onClickEditHandler = (item) => {
-        window.location.href=`/UpdateStudents/${item.id}`
-    }
+    // const onClickEditHandler = (item) => {
+    //     window.location.href=`/UpdateStudents/${item.id}`; 
+    // }
+    
+    const onClickEditHandler = (e, item) => {
+        e.preventDefault();
+        props.history.push(`/update-item/${item.id}`);
+      };
 
     const onClickDeleteHandler = (ev, item) => {
         ev.preventDefault();
@@ -40,7 +46,7 @@ const YourStudents = () => {
                         <StudentListItem>
                            <span>Name:</span> {item.name} 	&nbsp;	&nbsp; <span>Email:</span> {item.email}
                         </StudentListItem>
-                        <SmallBlueButton className="edit_delete" onClick={() => onClickEditHandler(item)}>Edit</SmallBlueButton>
+                        <Link className="edit_delete" to={`/UpdateStudents/${item.id}`}>Edit</Link>
                         <SmallBlueButton  className="edit_delete" onClick={ev => onClickDeleteHandler(ev, item)} >Delete</SmallBlueButton>
                     </div>
                 );

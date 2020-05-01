@@ -8,22 +8,11 @@ const Dashboard = () => {
             <h1>Welcome to your Dashboard.</h1>
             <Link to="/AddStudents"><SmallBlueButton>Add Students</SmallBlueButton></Link>
             <Link to="/YourStudents"><SmallBlueButton>Your Students</SmallBlueButton></Link>
-            {/* <Link to="/YourProjects"><SmallBlueButton>Your Projects</SmallBlueButton></Link> */}
+            {/* <Link to="/UpdateForm"><SmallBlueButton>Update</SmallBlueButton></Link> */}
         </DashboardDiv>
     )
 }
 
-// const mapStateToProps = state => {
-//     return {
-//       isLoading: state.isLoading,
-//       activity: state.activity,
-//       error: state.error,
-//       posts: state.posts
-//     };
-//   };
 export default Dashboard;
-//   export default connect(
-//     mapStateToProps,
-//     { getGarden, addPlant }          
-//   )(Dashboard);
+
 

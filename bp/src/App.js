@@ -63,7 +63,7 @@ function App() {
         <Route exact path='/YourStudents'>
           <YourStudents />
         </Route>
-        <Route exact path='/UpdateStudents'>
+        <Route path='/UpdateStudents/:id'>
           <UpdateStudents />
         </Route>
         <Route exact path='/YourProjects'>
